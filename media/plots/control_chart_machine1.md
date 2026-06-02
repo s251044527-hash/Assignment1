@@ -27,9 +27,17 @@ if (nrow(machine1_data_filtered) > 1) {
         geom_hline(aes(yintercept = CL, color = "CL"), linetype = "solid", size = 1) +
         geom_hline(aes(yintercept = UCL, color = "UCL"), linetype = "dashed", size = 1) +
         geom_hline(aes(yintercept = LCL, color = "LCL"), linetype = "dashed", size = 1) +
+        geom_hline(aes(yintercept = 50, color = "Target"), linetype = "solid", size = 1) + 
+        geom_hline(aes(yintercept = 55, color = "USL"), linetype = "dotdash", size = 1) + 
+        geom_hline(aes(yintercept = 45, color = "LSL"), linetype = "dotdash", size = 1) + 
         scale_color_manual(name = "Limits",
                            values = c("CL" = "#D55E00", "UCL" = "#CC79A7", "LCL" = "#CC79A7"),
-                           labels = c("CL" = "Center Line", "UCL" = "Upper Control Limit", "LCL" = "Lower Control Limit")) +
+                           labels = c("CL" = "Center Line", "UCL" = "Upper Control Limit", "LCL" = "Lower Control Limit")) + 
+        scale_color_manual(name = "Limits",
+                           values = c("CL" = "#D55E00", "UCL" = "#CC79A7", "LCL" = "#CC79A7",
+                                      "Target" = "#009E73", "USL" = "#0072B2", "LSL" = "#0072B2"),
+                           labels = c("CL" = "Center Line", "UCL" = "Upper Control Limit", "LCL" = "Lower Control Limit",
+                                      "Target" = "Target", "USL" = "Upper Spec Limit", "LSL" = "Lower Spec Limit")) +
         labs(title = "Individuals Control Chart for PartLength (Machine 1)",
              x = "Observation Index",
              y = "PartLength") +

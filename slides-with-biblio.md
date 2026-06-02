@@ -250,5 +250,74 @@ The data is filtered for:
 ::::
 
 ---
+
+:::: {.columns}
+::: {.column width="50%"}
+### Control Chart for PartLength (Machine 1)
+This chart displays the `PartLength` measurements for Machine 1, with an Individuals (I) control chart.
+- **Center Line (CL):** Represents the average `PartLength`.
+- **Upper Control Limit (UCL):** The maximum expected variation.
+- **Lower Control Limit (LCL):** The minimum expected variation.
+- **Target (T):** The desired process mean (set at 50).
+- **Upper Specification Limit (USL):** The upper boundary for acceptable product quality (set at 55).
+- **Lower Specification Limit (LSL):** The lower boundary for acceptable product quality (set at 45).
+
+The data is filtered for:
+- Pressure = 200kPa
+- Temperature = 338K
+:::
+
+::: {.column width="50%"}
+<iframe data-src='media/plots/control_chart_machine1.html' width='100%' height='500px' style='border:none;'></iframe>
+:::
+::::
+
+---
+
+:::: {.columns}
+::: {.column width="50%"}
+### Control Chart for PartLength (Machine 2)
+This chart displays the `PartLength` measurements for Machine 2, with an Individuals (I) control chart.
+- **Center Line (CL):** Represents the average `PartLength`.
+- **Upper Control Limit (UCL):** The maximum expected variation.
+- **Lower Control Limit (LCL):** The minimum expected variation.
+- **Target (T):** The desired process mean (set at 50).
+- **Upper Specification Limit (USL):** The upper boundary for acceptable product quality (set at 55).
+- **Lower Specification Limit (LSL):** The lower boundary for acceptable product quality (set at 45).
+
+The data is filtered for:
+- Pressure = 200kPa
+- Temperature = 338K
+:::
+
+::: {.column width="50%"}
+<iframe data-src='media/plots/control_chart_machine2.html' width='100%' height='500px' style='border:none;'></iframe>
+:::
+::::
+
+---
+
+:::: {.columns}
+::: {.column width="50%"}
+### Control Chart for PartLength (Machine 3)
+This chart displays the `PartLength` measurements for Machine 3, with an Individuals (I) control chart.
+- **Center Line (CL):** Represents the average `PartLength`.
+- **Upper Control Limit (UCL):** The maximum expected variation.
+- **Lower Control Limit (LCL):** The minimum expected variation.
+- **Target (T):** The desired process mean (set at 50).
+- **Upper Specification Limit (USL):** The upper boundary for acceptable product quality (set at 55).
+- **Lower Specification Limit (LSL):** The lower boundary for acceptable product quality (set at 45).
+
+The data is filtered for:
+- Pressure = 200kPa
+- Temperature = 338K
+:::
+
+::: {.column width="50%"}
+<iframe data-src='media/plots/control_chart_machine3.html' width='100%' height='500px' style='border:none;'></iframe>
+:::
+::::
+
+---
 # Bibliography
 <div id="refs"></div>

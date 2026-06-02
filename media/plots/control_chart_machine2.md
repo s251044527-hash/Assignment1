@@ -1,56 +1,45 @@
-
-library(qcc)
+# R code for Machine 2 Control Chart
+library(tidyverse)
 library(ggplot2)
 library(plotly)
-library(htmlwidgets)
 
-machine2_data_filtered <- X034..2.[X034..2.$Temperature == 338 & X034..2.$Pressure == 200 & X034..2.$Machine == 2,]
+TARGET <- 50
+USL <- 55
+LSL <- 45
 
-if (nrow(machine2_data_filtered) > 1) {
-    qcc_obj_m2 <- qcc(machine2_data_filtered$PartLength, type="xbar.one", plot = FALSE)
+machine2_data <- X034..2. %>%
+  filter(Machine == 2, Pressure == 200, Temperature == 338)
+machine2_data$PartLength <- as.numeric(machine2_data$PartLength)
 
-    cl_m2 <- qcc_obj_m2$center
-    ucl_m2 <- qcc_obj_m2$limits[1, "UCL"]
-    lcl_m2 <- qcc_obj_m2$limits[1, "LCL"]
+sd_val_m2 <- sd(machine2_data$PartLength)
+Cp_m2 <- (USL - LSL) / (6 * sd_val_m2)
+Cpk_upper_m2 <- (USL - mean(machine2_data$PartLength)) / (3 * sd_val_m2)
+Cpk_lower_m2 <- (mean(machine2_data$PartLength) - LSL) / (3 * sd_val_m2)
+Cpk_m2 <- min(Cpk_upper_m2, Cpk_lower_m2)
 
-    plot_data_m2 <- data.frame(
-        Index = 1:nrow(machine2_data_filtered),
-        PartLength = machine2_data_filtered$PartLength,
-        CL = cl_m2,
-        UCL = ucl_m2,
-        LCL = lcl_m2
-    )
+control_chart_m2_plot <- ggplot(machine2_data, aes(x = seq_along(PartLength), y = PartLength)) +
+  geom_line(color = "#D55E00") +
+  geom_point(color = "#D55E00") +
+  geom_hline(yintercept = TARGET, linetype = "dashed", color = "black", size = 1, alpha = 0.7) +
+  geom_hline(yintercept = USL, linetype = "dotted", color = "red", size = 1, alpha = 0.7) +
+  geom_hline(yintercept = LSL, linetype = "dotted", color = "red", size = 1, alpha = 0.7) +
+  labs(
+    title = "Control Chart for Machine 2 Part Length",
+    x = "Observation Index",
+    y = "Part Length (mm)"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 18, face = "bold"),
+    axis.title.x = element_text(size = 18),
+    axis.title.y = element_text(size = 18),
+    axis.text.x = element_text(size = 14),
+    axis.text.y = element_text(size = 14),
+    panel.background = element_rect(fill = "white", colour = NA),
+    plot.background = element_rect(fill = "white", colour = NA)
+  )
 
-    p_m2 <- ggplot(plot_data_m2, aes(x = Index, y = PartLength)) +
-        geom_line(color = "#0072B2") +
-        geom_point(color = "#0072B2", size = 2) +
-        geom_hline(aes(yintercept = CL, color = "CL"), linetype = "solid", size = 1) +
-        geom_hline(aes(yintercept = UCL, color = "UCL"), linetype = "dashed", size = 1) +
-        geom_hline(aes(yintercept = LCL, color = "LCL"), linetype = "dashed", size = 1) +
-        geom_hline(aes(yintercept = 50, color = "Target"), linetype = "solid", size = 1) + 
-        geom_hline(aes(yintercept = 55, color = "USL"), linetype = "dotdash", size = 1) + 
-        geom_hline(aes(yintercept = 45, color = "LSL"), linetype = "dotdash", size = 1) + 
-        scale_color_manual(name = "Limits",
-                           values = c("CL" = "#D55E00", "UCL" = "#CC79A7", "LCL" = "#CC79A7",
-                                      "Target" = "#009E73", "USL" = "#0072B2", "LSL" = "#0072B2"),
-                           labels = c("CL" = "Center Line", "UCL" = "Upper Control Limit", "LCL" = "Lower Control Limit",
-                                      "Target" = "Target", "USL" = "Upper Spec Limit", "LSL" = "Lower Spec Limit")) +
-        labs(title = "Individuals Control Chart for PartLength (Machine 2)",
-             x = "Observation Index",
-             y = "PartLength") +
-        theme_minimal() +
-        theme(
-            plot.title = element_text(size = 18, face = "bold"),
-            axis.title = element_text(size = 18),
-            axis.text = element_text(size = 14),
-            panel.background = element_rect(fill = "white", colour = "white"),
-            plot.background = element_rect(fill = "white", colour = "white"),
-            legend.position = "bottom"
-        )
+# Cp and Cpk values (formatted to 4 decimal places):
+# Cp: 1.9205
+# Cpk: 1.5899
 
-    plotly_p_m2 <- ggplotly(p_m2)
-    htmlwidgets::saveWidget(plotly_p_m2, file = "media/plots/control_chart_machine2.html", selfcontained = TRUE)
-} else {
-    message("Not enough data for Machine 2 to create a control chart with the specified filters.")
-}
-    

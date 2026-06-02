@@ -1,59 +1,51 @@
-
-library(qcc)
+# R code for Machine 1 Control Chart
+library(tidyverse)
 library(ggplot2)
 library(plotly)
-library(htmlwidgets)
 
-machine1_data_filtered <- X034..2.[X034..2.$Temperature == 338 & X034..2.$Pressure == 200 & X034..2.$Machine == 1,]
+TARGET <- 50
+USL <- 55
+LSL <- 45
 
-if (nrow(machine1_data_filtered) > 1) {
-    qcc_obj_m1 <- qcc(machine1_data_filtered$PartLength, type="xbar.one", plot = FALSE)
+machine1_data <- X034..2. %>%
+  filter(Machine == 1, Pressure == 200, Temperature == 338)
+machine1_data$PartLength <- as.numeric(machine1_data$PartLength)
 
-    cl_m1 <- qcc_obj_m1$center
-    ucl_m1 <- qcc_obj_m1$limits[1, "UCL"]
-    lcl_m1 <- qcc_obj_m1$limits[1, "LCL"]
+sd_val <- sd(machine1_data$PartLength)
+Cp <- (USL - LSL) / (6 * sd_val)
+Cpk_upper <- (USL - mean(machine1_data$PartLength)) / (3 * sd_val)
+Cpk_lower <- (mean(machine1_data$PartLength) - LSL) / (3 * sd_val)
+Cpk <- min(Cpk_upper, Cpk_lower)
 
-    plot_data_m1 <- data.frame(
-        Index = 1:nrow(machine1_data_filtered),
-        PartLength = machine1_data_filtered$PartLength,
-        CL = cl_m1,
-        UCL = ucl_m1,
-        LCL = lcl_m1
-    )
+control_chart_m1_plot <- ggplot(machine1_data, aes(x = seq_along(PartLength), y = PartLength)) +
+  geom_line(color = "#0072B2") +
+  geom_point(color = "#0072B2") +
+  geom_hline(yintercept = TARGET, linetype = "dashed", color = "black", size = 1, alpha = 0.7) +
+  geom_hline(yintercept = USL, linetype = "dotted", color = "red", size = 1, alpha = 0.7) +
+  geom_hline(yintercept = LSL, linetype = "dotted", color = "red", size = 1, alpha = 0.7) +
+  labs(
+    title = "Control Chart for Machine 1 Part Length",
+    x = "Observation Index",
+    y = "Part Length (mm)"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 18, face = "bold"),
+    axis.title.x = element_text(size = 18),
+    axis.title.y = element_text(size = 18),
+    axis.text.x = element_text(size = 14),
+    axis.text.y = element_text(size = 14),
+    panel.background = element_rect(fill = "white", colour = NA),
+    plot.background = element_rect(fill = "white", colour = NA)
+  )
 
-    p_m1 <- ggplot(plot_data_m1, aes(x = Index, y = PartLength)) +
-        geom_line(color = "#0072B2") +
-        geom_point(color = "#0072B2", size = 2) +
-        geom_hline(aes(yintercept = CL, color = "CL"), linetype = "solid", size = 1) +
-        geom_hline(aes(yintercept = UCL, color = "UCL"), linetype = "dashed", size = 1) +
-        geom_hline(aes(yintercept = LCL, color = "LCL"), linetype = "dashed", size = 1) +
-        geom_hline(aes(yintercept = 50, color = "Target"), linetype = "solid", size = 1) + 
-        geom_hline(aes(yintercept = 55, color = "USL"), linetype = "dotdash", size = 1) + 
-        geom_hline(aes(yintercept = 45, color = "LSL"), linetype = "dotdash", size = 1) + 
-        scale_color_manual(name = "Limits",
-                           values = c("CL" = "#D55E00", "UCL" = "#CC79A7", "LCL" = "#CC79A7"),
-                           labels = c("CL" = "Center Line", "UCL" = "Upper Control Limit", "LCL" = "Lower Control Limit")) + 
-        scale_color_manual(name = "Limits",
-                           values = c("CL" = "#D55E00", "UCL" = "#CC79A7", "LCL" = "#CC79A7",
-                                      "Target" = "#009E73", "USL" = "#0072B2", "LSL" = "#0072B2"),
-                           labels = c("CL" = "Center Line", "UCL" = "Upper Control Limit", "LCL" = "Lower Control Limit",
-                                      "Target" = "Target", "USL" = "Upper Spec Limit", "LSL" = "Lower Spec Limit")) +
-        labs(title = "Individuals Control Chart for PartLength (Machine 1)",
-             x = "Observation Index",
-             y = "PartLength") +
-        theme_minimal() +
-        theme(
-            plot.title = element_text(size = 18, face = "bold"),
-            axis.title = element_text(size = 18),
-            axis.text = element_text(size = 14),
-            panel.background = element_rect(fill = "white", colour = "white"),
-            plot.background = element_rect(fill = "white", colour = "white"),
-            legend.position = "bottom"
-        )
+# To display the plot (in an interactive R environment):
+# print(control_chart_m1_plot)
 
-    plotly_p_m1 <- ggplotly(p_m1)
-    htmlwidgets::saveWidget(plotly_p_m1, file = "media/plots/control_chart_machine1.html", selfcontained = TRUE)
-} else {
-    message("Not enough data for Machine 1 to create a control chart with the specified filters.")
-}
-    
+# Save as HTML (for Colab/Reveal.js integration):
+# htmlwidgets::saveWidget(ggplotly(control_chart_m1_plot), file = "media/plots/control_chart_machine1.html", selfcontained = TRUE)
+
+# Cp and Cpk values (formatted to 4 decimal places):
+# Cp: 2.2423
+# Cpk: 1.8774
+

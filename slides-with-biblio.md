@@ -1546,5 +1546,111 @@ Analysis based on USL=55, LSL=45.
 ::::
 
 ---
+
+## Final Process Capability Summary
+
+Below are the consistent professional results calculated using the `qcc` library moving-range method:
+
+:::: {.columns}
+::: {.column width="33%"}
+### Machine 1
+- **Cp:** 2.2067
+- **Cpk:** 1.8475
+:::
+
+::: {.column width="33%"}
+### Machine 2
+- **Cp:** 2.0435
+- **Cpk:** 1.6917
+:::
+
+::: {.column width="33%"}
+### Machine 3
+- **Cp:** 1.8232
+- **Cpk:** 1.5164
+:::
+::::
+
+![](media/plots/capability_machine1.png)
+
+---
+
+## Final Process Capability Summary
+
+Below are the consistent professional results calculated using the `qcc` library moving-range method:
+
+:::: {.columns}
+::: {.column width="33%"}
+### Machine 1
+- **Cp:** 2.2067
+- **Cpk:** 1.8475
+:::
+
+::: {.column width="33%"}
+### Machine 2
+- **Cp:** 2.0435
+- **Cpk:** 1.6917
+:::
+
+::: {.column width="33%"}
+### Machine 3
+- **Cp:** 1.8232
+- **Cpk:** 1.5164
+:::
+::::
+
+![](media/plots/capability_machine1.png)
+
+---
+
+:::: {.columns}
+::: {.column width="50%"}
+### Machine 1 Capability
+**Professional Analysis (200kPa, 338K)**
+
+- **Cp:** 2.2067
+- **Cpk:** 1.8475
+
+Analysis based on USL=55, LSL=45.
+::: 
+
+::: {.column width="50%"}
+![](media/plots/capability_machine1.png)
+:::
+::::
+
+---
+
+:::: {.columns}
+::: {.column width="50%"}
+### Machine 2 Capability
+**Professional Analysis (200kPa, 338K)**
+
+- **Cp:** 2.0435
+- **Cpk:** 1.6917
+::: 
+
+::: {.column width="50%"}
+![](media/plots/capability_machine2.png)
+:::
+::::
+
+---
+
+:::: {.columns}
+::: {.column width="50%"}
+### Machine 3 Capability
+**Professional Analysis (200kPa, 338K)**
+
+- **Cp:** 1.8232
+- **Cpk:** 1.5164
+::: 
+
+::: {.column width="50%"}
+![](media/plots/capability_machine3.png)
+:::
+::::
+
+---
 # Bibliography
 <div id="refs"></div>

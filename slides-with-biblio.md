@@ -1883,5 +1883,26 @@ Analysis based on USL=55, LSL=45.
 ::::
 
 ---
+
+## Machine 1: Process Capability Chart
+**Conditions: 200kPa, 338K**
+
+![](media/plots/capability_machine1.png)
+
+---
+
+## Machine 2: Process Capability Chart
+**Conditions: 200kPa, 338K**
+
+![](media/plots/capability_machine2.png)
+
+---
+
+## Machine 3: Process Capability Chart
+**Conditions: 200kPa, 338K**
+
+![](media/plots/capability_machine3.png)
+
+---
 # Bibliography
 <div id="refs"></div>

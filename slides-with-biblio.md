@@ -1652,5 +1652,236 @@ Analysis based on USL=55, LSL=45.
 ::::
 
 ---
+
+## Machine 1 Capability Analysis
+
+**Parameters:** Pressure = 200kPa, Temperature = 338K
+
+- **Target (T):** 50 mm
+- **Upper Specification Limit (USL):** 55 mm
+- **Lower Specification Limit (LSL):** 45 mm
+
+```
+Cp = 2.2423
+Cpk = 1.8774
+```
+
+<iframe data-src='media/plots/control_chart_machine1.html' width='100%' height='500px' style='border:none;'></iframe>
+
+---
+
+## Machine 2 Capability Analysis
+
+**Parameters:** Pressure = 200kPa, Temperature = 338K
+
+- **Target (T):** 50 mm
+- **Upper Specification Limit (USL):** 55 mm
+- **Lower Specification Limit (LSL):** 45 mm
+
+```
+Cp = 1.9205
+Cpk = 1.5899
+```
+
+<iframe data-src='media/plots/control_chart_machine2.html' width='100%' height='500px' style='border:none;'></iframe>
+
+---
+
+## Machine 3 Capability Analysis
+
+**Parameters:** Pressure = 200kPa, Temperature = 338K
+
+- **Target (T):** 50 mm
+- **Upper Specification Limit (USL):** 55 mm
+- **Lower Specification Limit (LSL):** 45 mm
+
+```
+Cp = 1.9206
+Cpk = 1.5975
+```
+
+<iframe data-src='media/plots/control_chart_machine3.html' width='100%' height='500px' style='border:none;'></iframe>
+
+---
+
+## Machine 1 Capability Analysis
+
+**Parameters:** Pressure = 200kPa, Temperature = 338K
+
+- **Target (T):** 50 mm
+- **Upper Specification Limit (USL):** 55 mm
+- **Lower Specification Limit (LSL):** 45 mm
+
+```
+Cp = 2.2423
+Cpk = 1.8774
+```
+
+<iframe data-src='media/plots/control_chart_machine1.html' width='100%' height='500px' style='border:none;'></iframe>
+
+---
+
+## Machine 2 Capability Analysis
+
+**Parameters:** Pressure = 200kPa, Temperature = 338K
+
+- **Target (T):** 50 mm
+- **Upper Specification Limit (USL):** 55 mm
+- **Lower Specification Limit (LSL):** 45 mm
+
+```
+Cp = 1.9205
+Cpk = 1.5899
+```
+
+<iframe data-src='media/plots/control_chart_machine2.html' width='100%' height='500px' style='border:none;'></iframe>
+
+---
+
+## Machine 3 Capability Analysis
+
+**Parameters:** Pressure = 200kPa, Temperature = 338K
+
+- **Target (T):** 50 mm
+- **Upper Specification Limit (USL):** 55 mm
+- **Lower Specification Limit (LSL):** 45 mm
+
+```
+Cp = 1.9206
+Cpk = 1.5975
+```
+
+<iframe data-src='media/plots/control_chart_machine3.html' width='100%' height='500px' style='border:none;'></iframe>
+
+---
+
+## Machine 1 Capability Analysis
+
+**Parameters:** Pressure = 200kPa, Temperature = 338K
+
+- **Target (T):** 50 mm
+- **Upper Specification Limit (USL):** 55 mm
+- **Lower Specification Limit (LSL):** 45 mm
+
+```
+Cp = 2.2423
+Cpk = 1.8774
+```
+
+<iframe data-src='media/plots/control_chart_machine1.html' width='100%' height='500px' style='border:none;'></iframe>
+
+---
+
+## Machine 2 Capability Analysis
+
+**Parameters:** Pressure = 200kPa, Temperature = 338K
+
+- **Target (T):** 50 mm
+- **Upper Specification Limit (USL):** 55 mm
+- **Lower Specification Limit (LSL):** 45 mm
+
+```
+Cp = 1.9205
+Cpk = 1.5899
+```
+
+<iframe data-src='media/plots/control_chart_machine2.html' width='100%' height='500px' style='border:none;'></iframe>
+
+---
+
+## Machine 3 Capability Analysis
+
+**Parameters:** Pressure = 200kPa, Temperature = 338K
+
+- **Target (T):** 50 mm
+- **Upper Specification Limit (USL):** 55 mm
+- **Lower Specification Limit (LSL):** 45 mm
+
+```
+Cp = 1.9206
+Cpk = 1.5975
+```
+
+<iframe data-src='media/plots/control_chart_machine3.html' width='100%' height='500px' style='border:none;'></iframe>
+
+---
+
+## Final Process Capability Summary
+
+Below are the consistent professional results calculated using the `qcc` library moving-range method:
+
+:::: {.columns}
+::: {.column width="33%"}
+### Machine 1
+- **Cp:** 2.2067
+- **Cpk:** 1.8475
+:::
+
+::: {.column width="33%"}
+### Machine 2
+- **Cp:** 2.0435
+- **Cpk:** 1.6917
+:::
+
+::: {.column width="33%"}
+### Machine 3
+- **Cp:** 1.8232
+- **Cpk:** 1.5164
+:::
+::::
+
+![](media/plots/capability_machine1.png)
+
+---
+
+:::: {.columns}
+::: {.column width="50%"}
+### Machine 1 Capability
+**Professional Analysis (200kPa, 338K)**
+
+- **Cp:** 2.2067
+- **Cpk:** 1.8475
+
+Analysis based on USL=55, LSL=45.
+::: 
+
+::: {.column width="50%"}
+![](media/plots/capability_machine1.png)
+:::
+::::
+
+---
+
+:::: {.columns}
+::: {.column width="50%"}
+### Machine 2 Capability
+**Professional Analysis (200kPa, 338K)**
+
+- **Cp:** 2.0435
+- **Cpk:** 1.6917
+::: 
+
+::: {.column width="50%"}
+![](media/plots/capability_machine2.png)
+:::
+::::
+
+---
+
+:::: {.columns}
+::: {.column width="50%"}
+### Machine 3 Capability
+**Professional Analysis (200kPa, 338K)**
+
+- **Cp:** 1.8232
+- **Cpk:** 1.5164
+::: 
+
+::: {.column width="50%"}
+![](media/plots/capability_machine3.png)
+:::
+::::
+
+---
 # Bibliography
 <div id="refs"></div>

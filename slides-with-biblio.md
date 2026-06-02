@@ -463,5 +463,53 @@ Analysis of Machine 3 at 200kPa and 338K.
 ::::
 
 ---
+
+:::: {.columns}
+::: {.column width="50%"}
+### Machine 1 Capability Analysis
+Analysis of Machine 1 at 200kPa and 338K.
+
+- **Target:** 50.0000
+- **Specs:** [45.0000, 55.0000]
+- **Process Stability:** Check control limits for outliers.
+:::
+
+::: {.column width="50%"}
+<iframe data-src='media/plots/control_chart_m1.html' width='100%' height='500px' style='border:none;'></iframe>
+:::
+::::
+
+---
+
+:::: {.columns}
+::: {.column width="50%"}
+### Machine 2 Capability Analysis
+Analysis of Machine 2 at 200kPa and 338K.
+
+- **Process Control:** Monitored via Individuals chart.
+- **Objective:** Maintain PartLength within $\pm 5$ of target.
+:::
+
+::: {.column width="50%"}
+<iframe data-src='media/plots/control_chart_m2.html' width='100%' height='500px' style='border:none;'></iframe>
+:::
+::::
+
+---
+
+:::: {.columns}
+::: {.column width="50%"}
+### Machine 3 Capability Analysis
+Analysis of Machine 3 at 200kPa and 338K.
+
+- **Assessment:** Capability indices $C_p$ and $C_{pk}$ shown in plot header.
+:::
+
+::: {.column width="50%"}
+<iframe data-src='media/plots/control_chart_m3.html' width='100%' height='500px' style='border:none;'></iframe>
+:::
+::::
+
+---
 # Bibliography
 <div id="refs"></div>
